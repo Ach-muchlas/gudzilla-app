@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GudzillaApps</string>
+    <string name="text_full_name_apps"><![CDATA[Gudang Distribution & Zero-loss Inventory Logistics Automation SaktiSetia Santosa]]></string>
+    <string name="text_input_employee_id">Masukan id karyawan</string>
+    <string name="text_imei">Imei</string>
+    <string name="text_server_name">Alamat Server</string>
+    <string name="text_success_copy_device_id">Device id berhasil di copy</string>
+    <string name="text_permission_camera">Izin kamera diperlukan untuk mengambil foto</string>
+    <string name="text_permission_gallery">Izin galeri diperlukan</string>
+    <string name="text_permission_location">Izin lokasi diperlukan</string>
+    <string name="text_permission_notification">Izin notifikasi diperlukan</string>
+    <string name="text_permission_denied">Permission ditolak</string>
+    <string name="text_pallet">Pallet</string>
+    <string name="text_desc_menu_pallet">Fitur digunakan mengelola pallet dan posisi penyimpanan barang.</string>
+    <string name="text_setting">Pengaturan</string>
+    <string name="text_desc_menu_setting">Pengaturan Aplikasi</string>
+</resources>
