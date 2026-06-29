@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.feature.inbound.presentation.component.section
+package com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.section
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -40,7 +41,7 @@ fun ExpiryBreakdownSection(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Box(
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(45.dp)
                     .background(
                         color = Color(0xFFA37E2D).copy(alpha = 0.1f),
                         shape = RoundedCornerShape(8.dp)
@@ -56,15 +57,17 @@ fun ExpiryBreakdownSection(
                     imageVector = Icons.Default.CalendarMonth,
                     contentDescription = null,
                     tint = Color(0xFFA37E2D),
-                    modifier = Modifier.size(16.dp)
+                    modifier = Modifier.size(30.dp)
                 )
             }
             Spacer(modifier = Modifier.width(8.dp))
+
             Text(
                 text = "EXPIRY BREAKDOWN",
                 style = BodyPopMedium.copy(color = Gray, letterSpacing = 0.8.sp)
             )
         }
+        Spacer(Modifier.height(1.dp))
 
         allItems.forEach { item ->
             ExpiryItemRow(item)
@@ -109,7 +112,7 @@ private fun ExpiryItemRow(item: ItemPurchaseOrder) {
                     Text(
                         text = "Qty: ${item.qtyItem}",
                         modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
-                        style = BodyPopMedium.copy(color = Gray)
+                        style = BodyPopMedium.copy(color = Gray, fontSize = 12.sp)
                     )
                 }
             }
@@ -126,11 +129,17 @@ private fun ExpiryItemRow(item: ItemPurchaseOrder) {
                 ) {
                     Text(
                         text = "EXP DATE",
-                        style = BodyPopMedium.copy(Color(0xFFA37E2D).copy(alpha = 0.7f))
+                        style = BodyPopMedium.copy(
+                            fontSize = 12.sp,
+                            color = Color(0xFFA37E2D).copy(alpha = 0.7f)
+                        )
                     )
                     Text(
                         text = item.expDate,
-                        style = BodyPopBold.copy(color = Color(0xFFA37E2D))
+                        style = BodyPopBold.copy(
+                            fontSize = 12.sp,
+                            color = Color(0xFFA37E2D)
+                        )
                     )
                 }
             }

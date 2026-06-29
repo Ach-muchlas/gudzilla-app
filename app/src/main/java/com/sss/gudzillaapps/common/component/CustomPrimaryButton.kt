@@ -36,7 +36,6 @@ import com.sss.gudzillaapps.common.theme.TitlePopBold
 
 @Composable
 fun CustomPrimaryButton(
-    modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = Dimens.LargeFont,
     enabled: Boolean = true,
@@ -45,6 +44,7 @@ fun CustomPrimaryButton(
         PeachLight,
         PeachDark
     ),
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
 

@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.feature.inbound.presentation.component
+package com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.component
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
@@ -27,10 +27,10 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.feature.inbound.data.model.HeaderTransactionPallet
-import com.sss.gudzillaapps.feature.inbound.presentation.component.section.ExpiryBreakdownSection
-import com.sss.gudzillaapps.feature.inbound.presentation.component.section.InboundHeaderSection
-import com.sss.gudzillaapps.feature.inbound.presentation.component.section.PurchaseOrderSection
-import com.sss.gudzillaapps.feature.inbound.presentation.component.section.StorageLocationSection
+import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.section.ExpiryBreakdownSection
+import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.section.InboundHeaderSection
+import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.section.PurchaseOrderSection
+import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.section.StorageLocationSection
 import kotlinx.coroutines.launch
 
 @Composable

@@ -31,5 +31,11 @@ fun NavController.navigateToDestination(destination: RouteDestination) {
                 launchSingleTop = true
             }
         }
+
+        RouteDestination.ListInboundPalletToCreateInbound -> {
+            navigate(Routes.CREATE_INBOUND){
+                launchSingleTop = true
+            }
+        }
     }
 }

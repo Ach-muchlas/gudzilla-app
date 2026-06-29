@@ -8,13 +8,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sss.gudzillaapps.common.navigation.Routes.CONNECTION
+import com.sss.gudzillaapps.common.navigation.Routes.CREATE_INBOUND
 import com.sss.gudzillaapps.common.navigation.Routes.HOME
 import com.sss.gudzillaapps.common.navigation.Routes.INBOUND
 import com.sss.gudzillaapps.common.navigation.Routes.LOGIN
 import com.sss.gudzillaapps.common.navigation.Routes.PALLET
 import com.sss.gudzillaapps.feature.connection.presentation.ConnectionScreen
 import com.sss.gudzillaapps.feature.home.presentation.HomeScreen
-import com.sss.gudzillaapps.feature.inbound.presentation.InboundScreen
+import com.sss.gudzillaapps.feature.inbound.presentation.create_inbound.CreateInboundScreen
+import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.ListInboundScreen
 import com.sss.gudzillaapps.feature.login.presentation.LoginScreen
 import com.sss.gudzillaapps.feature.pallet.presentation.PalletScreen
 
@@ -55,12 +57,17 @@ fun AppNavGraph(
         composable(PALLET) {
             PalletScreen(
                 onNavigate = { destination -> navController.navigateToDestination(destination) },
-                navBack = { navController.popBackStack() }
-            )
+                navBack = { navController.popBackStack() })
         }
 
         composable(INBOUND) {
-            InboundScreen(navBack = { navController.popBackStack() })
+            ListInboundScreen(
+                navBack = { navController.popBackStack() },
+                navOnCreateHeader = { navController.navigateToDestination(RouteDestination.ListInboundPalletToCreateInbound) })
+        }
+
+        composable(CREATE_INBOUND) {
+            CreateInboundScreen()
         }
     }
 }

@@ -28,6 +28,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
@@ -44,9 +45,10 @@ fun CustomTextField(
     modifier: Modifier = Modifier,
     forceUppercase: Boolean = false,
     readOnly: Boolean = false,
+    textStyle: TextStyle = BodyPopMedium,
     textColor: Color = Color.Black,
     backgroundColor: Color = Color.White,
-    trailingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null, // icon disebelah kanan
     leadingIcon: (@Composable () -> Unit)? = null,
     isMultiline: Boolean = false,
     showClearIcon: Boolean = true,
@@ -86,7 +88,7 @@ fun CustomTextField(
                 onValueChange(newValue)
             },
             readOnly = readOnly,
-            textStyle = BodyPopMedium.copy(color = textColor),
+            textStyle = textStyle.copy(color = textColor),
             visualTransformation = visualTransformation,
             keyboardOptions = keyboardOptions.copy(
                 imeAction = if (isMultiline) ImeAction.Default else ImeAction.Next
