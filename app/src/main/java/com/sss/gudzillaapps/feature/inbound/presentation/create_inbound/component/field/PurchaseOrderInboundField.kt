@@ -23,7 +23,9 @@ import com.sss.gudzillaapps.common.theme.Primary
 
 
 @Composable
-fun PurchaseOrderInBoundField() {
+fun PurchaseOrderInBoundField(
+    onclickAddPo : () -> Unit
+) {
 
     Text(
         text = "Pilih Nomor PO",
@@ -34,7 +36,6 @@ fun PurchaseOrderInBoundField() {
     )
 
     Spacer(Modifier.height(Dimens.ExtraExtraSmallMargin))
-
 
     CustomTextField(
         value = "Tambah Purchase Order",
@@ -59,8 +60,6 @@ fun PurchaseOrderInBoundField() {
                 tint = Gray
             )
         },
-        onClick = {
-            Log.e("CHECK_DATA", "On clicked")
-        }
+        onClick = onclickAddPo
     )
 }

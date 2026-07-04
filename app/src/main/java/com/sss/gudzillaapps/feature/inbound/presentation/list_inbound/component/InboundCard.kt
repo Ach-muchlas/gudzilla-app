@@ -42,9 +42,9 @@ fun InboundCard(
     val scope = rememberCoroutineScope()
 
     Surface(
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(Dimens.MediumMargin),
         color = Color(0xFFFFFEFC),
-        shadowElevation = 12.dp,
+        shadowElevation = Dimens.SmallMargin,
         tonalElevation = 2.dp,
         border = BorderStroke(1.dp, Color.DarkGray.copy(alpha = 0.2f)),
         modifier = Modifier

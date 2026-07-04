@@ -11,6 +11,7 @@ import com.sss.gudzillaapps.common.navigation.Routes.CONNECTION
 import com.sss.gudzillaapps.common.navigation.Routes.CREATE_INBOUND
 import com.sss.gudzillaapps.common.navigation.Routes.HOME
 import com.sss.gudzillaapps.common.navigation.Routes.INBOUND
+import com.sss.gudzillaapps.common.navigation.Routes.LIST_PURCHASE_ORDER
 import com.sss.gudzillaapps.common.navigation.Routes.LOGIN
 import com.sss.gudzillaapps.common.navigation.Routes.PALLET
 import com.sss.gudzillaapps.feature.connection.presentation.ConnectionScreen
@@ -19,6 +20,7 @@ import com.sss.gudzillaapps.feature.inbound.presentation.create_inbound.CreateIn
 import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.ListInboundScreen
 import com.sss.gudzillaapps.feature.login.presentation.LoginScreen
 import com.sss.gudzillaapps.feature.pallet.presentation.PalletScreen
+import com.sss.gudzillaapps.feature.purchase_order.presentation.list_purchase_order.ListPurchaseOrderScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
@@ -67,7 +69,12 @@ fun AppNavGraph(
         }
 
         composable(CREATE_INBOUND) {
-            CreateInboundScreen()
+            CreateInboundScreen(
+                onClickAddPo = { navController.navigateToDestination(RouteDestination.CreateHeaderInboundToListPurchaseOrder) })
+        }
+
+        composable(LIST_PURCHASE_ORDER) {
+            ListPurchaseOrderScreen()
         }
     }
 }

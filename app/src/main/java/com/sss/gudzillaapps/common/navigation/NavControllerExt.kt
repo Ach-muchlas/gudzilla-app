@@ -33,7 +33,13 @@ fun NavController.navigateToDestination(destination: RouteDestination) {
         }
 
         RouteDestination.ListInboundPalletToCreateInbound -> {
-            navigate(Routes.CREATE_INBOUND){
+            navigate(Routes.CREATE_INBOUND) {
+                launchSingleTop = true
+            }
+        }
+
+        RouteDestination.CreateHeaderInboundToListPurchaseOrder -> {
+            navigate(Routes.LIST_PURCHASE_ORDER){
                 launchSingleTop = true
             }
         }

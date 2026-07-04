@@ -66,11 +66,6 @@ fun ListInboundContent(
                     end = 20.dp, bottom = 20.dp
                 )
         )
-
-//
-//        if (isAlertVisible){
-//            ShowAlertOptionScanOrManual(onDismiss = {})
-//        }
     }
 }
 

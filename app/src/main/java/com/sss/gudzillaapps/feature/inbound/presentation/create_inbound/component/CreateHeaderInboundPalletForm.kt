@@ -25,6 +25,7 @@ fun CreateHeaderInboundPalletForm(
     palletId: String,
     onChangePalletID: (String) -> Unit,
     focusManager: FocusManager,
+    onclickAddPo : () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -50,7 +51,7 @@ fun CreateHeaderInboundPalletForm(
             focusManager = focusManager
         )
         Spacer(Modifier.height(Dimens.MediumMargin))
-        PurchaseOrderInBoundField()
+        PurchaseOrderInBoundField(onclickAddPo)
         Spacer(Modifier.height(Dimens.MediumMargin))
         PalletInboundField(
             textTitle = "Lokasi Storage",

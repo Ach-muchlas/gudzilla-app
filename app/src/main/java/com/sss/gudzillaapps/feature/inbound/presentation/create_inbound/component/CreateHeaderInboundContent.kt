@@ -23,6 +23,7 @@ import com.sss.gudzillaapps.common.theme.Dimens
 fun CreateHeaderInboundContent(
     palletId: String,
     onChangePalletID: (String) -> Unit,
+    onclickAddPo : () -> Unit,
     focusManager: FocusManager,
 ) {
 
@@ -46,7 +47,7 @@ fun CreateHeaderInboundContent(
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                CreateHeaderInboundPalletForm(palletId, onChangePalletID, focusManager)
+                CreateHeaderInboundPalletForm(palletId, onChangePalletID, focusManager, onclickAddPo)
             }
         }
 

@@ -11,4 +11,5 @@ sealed class RouteDestination {
     data object PalletToInbound : RouteDestination()
 
     data object ListInboundPalletToCreateInbound : RouteDestination()
+    data object CreateHeaderInboundToListPurchaseOrder : RouteDestination()
 }
