@@ -14,4 +14,6 @@
     <string name="text_desc_menu_pallet">Fitur digunakan mengelola pallet dan posisi penyimpanan barang.</string>
     <string name="text_setting">Pengaturan</string>
     <string name="text_desc_menu_setting">Pengaturan Aplikasi</string>
+    <string name="text_input_pallet_id">Masukan id pallete</string>
+    <string name="text_input_storage">Masukan Lokasi Storage</string>
 </resources>

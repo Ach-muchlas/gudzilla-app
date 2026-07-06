@@ -1,5 +1,6 @@
 package com.sss.gudzillaapps.feature.home.presentation.component
 
+import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -9,20 +10,29 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.LocationOn
+import androidx.compose.material.icons.rounded.Inventory
+import androidx.compose.material.icons.rounded.LocationOn
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -41,26 +51,60 @@ fun HomeHeader() {
         modifier = Modifier.padding(horizontal = Dimens.LargeMargin)
     ) {
         Spacer(Modifier.height(30.dp))
-        Text("Hello, ", style = BodyBitterBold.copy(fontSize = 25.sp))
-        Spacer(Modifier.height(3.dp))
+
         Row {
-            Text(
-                "Achmad Muchlasin", style = BodyBitterBold.copy(color = Primary, fontSize = 25.sp)
-            )
-            Text(
-                " !! ", style = BodyBitterBold.copy(color = Primary, fontSize = 25.sp)
-            )
+            Text("Hello, ", style = BodyBitterBold.copy(fontSize = 25.sp))
             Image(
                 painter = painterResource(R.drawable.icon_hello),
                 contentDescription = "Icon Hello",
                 Modifier.size(28.dp)
             )
+        }
+
+        Spacer(Modifier.height(3.dp))
+
+        Row {
+            Text(
+                "Achmad Muchlasin", style = BodyBitterBold.copy(
+                    color = Primary, fontSize = 25.sp, fontWeight = FontWeight.Bold
+                )
+            )
+            Text(
+                " !! ", style = BodyBitterBold.copy(color = Primary, fontSize = 25.sp)
+            )
             Spacer(Modifier.weight(1f))
         }
         Spacer(Modifier.height(3.dp))
-        Text(
-            "Kantor Pusat", style = BodyBitterMedium.copy(color = Gray)
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = Icons.Outlined.LocationOn,
+                contentDescription = null,
+                tint = Primary,
+                modifier = Modifier.size(18.dp)
+            )
+
+            Spacer(Modifier.width(3.dp))
+
+            Text(
+                "Kantor Pusat", style = BodyBitterMedium.copy(color = Gray)
+            )
+
+            Spacer(Modifier.width(3.dp))
+
+            Text(
+                text = " • ",
+                style = BodyBitterMedium.copy(color = Gray) // Mengikuti warna teks atau disesuaikan
+            )
+
+            Spacer(Modifier.width(3.dp))
+
+            Text(
+                text = " Android Developer",
+                style = BodyBitterMedium.copy(color = Gray) // Mengikuti warna teks atau disesuaikan
+            )
+        }
     }
 }
 
@@ -80,8 +124,7 @@ fun HomeMenu(menus: List<MenuData>, onMenuClicked: (MenuData) -> Unit) {
     ) {
         items(menus) { item ->
             MenuCard(
-                menuData = item,
-                onClick = onMenuClicked
+                menuData = item, onClick = onMenuClicked
             )
         }
     }
@@ -89,7 +132,7 @@ fun HomeMenu(menus: List<MenuData>, onMenuClicked: (MenuData) -> Unit) {
 
 
 @Composable
-fun HomeContent(viewModel: HomeViewModel) {
+fun HomeContent(viewModel: HomeViewModel, onClickStoreManagement : () -> Unit) {
 
     val menuItems by viewModel.menuItems.collectAsStateWithLifecycle()
 
@@ -109,8 +152,45 @@ fun HomeContent(viewModel: HomeViewModel) {
                 .fillMaxSize()
                 .imePadding(),
         ) {
+
             Spacer(Modifier.height(Dimens.ExtraLargeMargin))
             HomeHeader()
+            Spacer(Modifier.height(Dimens.LargeMargin))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = Dimens.LargeMargin),
+                horizontalArrangement = Arrangement.spacedBy(Dimens.MediumMargin)
+            ) {
+
+                StorageMenuCard(
+                    percentage = 80,
+                    modifier = Modifier.weight(0.8f),
+                    onClick = onClickStoreManagement
+                )
+
+                Column(
+                    modifier = Modifier.weight(1f).padding(end = Dimens.MediumMargin),
+                    verticalArrangement = Arrangement.spacedBy(Dimens.MediumMargin)
+                ) {
+                    InfoStatCard(
+                        label = "Active Pallets",
+                        value = "1,284",
+                        trend = "↑ 4%",
+                        icon = Icons.Rounded.Inventory,
+                        iconColor = Color(0xFF9C5A32),
+                        iconBackgroundColor = Color(0xFFFFE6D5)
+                    )
+                    InfoStatCard(
+                        label = "Active Pallets",
+                        value = "1,284",
+                        trend = "↑ 4%",
+                        icon = Icons.Rounded.Inventory,
+                        iconColor = Color(0xFF9C5A32),
+                        iconBackgroundColor = Color(0xFFFFE6D5)
+                    )
+                }
+            }
             Spacer(Modifier.height(Dimens.SmallMargin))
             HomeMenu(menus = menuItems, onMenuClicked = viewModel::onMenuClicked)
         }

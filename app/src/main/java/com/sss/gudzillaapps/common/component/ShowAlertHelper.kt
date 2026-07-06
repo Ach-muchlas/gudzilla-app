@@ -28,6 +28,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.sss.gudzillaapps.R
 import com.sss.gudzillaapps.common.theme.BodyBitterMedium
 import com.sss.gudzillaapps.common.theme.BodyPopBold
+import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.common.theme.White
 
 
@@ -156,7 +157,7 @@ private fun AlertContent(
                 modifier = Modifier.size(100.dp)
             )
 
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(Dimens.MediumMargin))
 
             // Title — tampil hanya jika bukan Loading
             if (title.isNotBlank() && config.isDismissible) {

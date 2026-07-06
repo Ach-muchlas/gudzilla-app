@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.feature.inbound.presentation.component.section
+package com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.section
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

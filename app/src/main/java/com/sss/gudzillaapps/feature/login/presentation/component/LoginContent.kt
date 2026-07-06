@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -226,6 +227,7 @@ fun DeviceIdField(
         onValueChange = {},
         hint = "",
         readOnly = true,
+        textStyle = BodyPopBold,
         textColor = Primary,
         trailingIcon = {
             IconButton(
@@ -262,6 +264,13 @@ fun EmployeeField(
         forceUppercase = true,
         onValueChange = onChange,
         hint = stringResource(R.string.text_input_employee_id),
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Outlined.Person,
+                contentDescription = "Icon Employee Id",
+                tint = Gray
+            )
+        },
         keyboardOptions = KeyboardOptions(
             capitalization = KeyboardCapitalization.Characters
         ),

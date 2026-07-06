@@ -2,7 +2,7 @@ package com.sss.gudzillaapps.common.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Primary = Color(0xFFA37E2D)
+val Primary = Color(0xFFBF8E26)
 val Spruce = Color(0xFF00603A)
 val Gray = Color(0xFF898989)
 val LightGray = Color(0xFFF5F5F5)

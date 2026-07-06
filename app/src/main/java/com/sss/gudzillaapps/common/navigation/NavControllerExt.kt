@@ -31,5 +31,23 @@ fun NavController.navigateToDestination(destination: RouteDestination) {
                 launchSingleTop = true
             }
         }
+
+        RouteDestination.ListInboundPalletToCreateInbound -> {
+            navigate(Routes.CREATE_INBOUND) {
+                launchSingleTop = true
+            }
+        }
+
+        RouteDestination.CreateHeaderInboundToListPurchaseOrder -> {
+            navigate(Routes.LIST_PURCHASE_ORDER){
+                launchSingleTop = true
+            }
+        }
+
+        RouteDestination.HomeToStoreManagement -> {
+            navigate(Routes.STORE_MANAGEMENT){
+                launchSingleTop = true
+            }
+        }
     }
 }

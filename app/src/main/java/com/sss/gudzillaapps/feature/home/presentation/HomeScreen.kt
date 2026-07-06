@@ -10,8 +10,9 @@ import org.koin.androidx.compose.koinViewModel
 fun HomeScreen(
     viewModel: HomeViewModel = koinViewModel(),
     onNavigate: (RouteDestination) -> Unit,
+    onClickManagementStore : () -> Unit
 ) {
     HomeNavEventHandler(viewModel, onNavigate)
-    HomeContent(viewModel)
+    HomeContent(viewModel, onClickStoreManagement= onClickManagementStore)
 }
 

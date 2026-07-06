@@ -3,6 +3,8 @@ package com.sss.gudzillaapps
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.sss.gudzillaapps.common.manager.SessionManager
+import com.sss.gudzillaapps.di.AppModule.dataSource
+import com.sss.gudzillaapps.di.AppModule.database
 import com.sss.gudzillaapps.di.AppModule.repository
 import com.sss.gudzillaapps.di.AppModule.useCase
 import com.sss.gudzillaapps.di.AppModule.viewModel
@@ -17,13 +19,7 @@ class MyApplication : Application() {
 
         startKoin {
             androidContext(this@MyApplication)
-            modules(
-                listOf(
-                    repository,
-                    useCase,
-                    viewModel
-                )
-            )
+            modules(listOf(database, dataSource, repository, useCase, viewModel))
         }
     }
 }

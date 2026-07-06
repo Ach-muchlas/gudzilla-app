@@ -4,6 +4,7 @@ package com.sss.gudzillaapps.common.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -24,10 +25,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
@@ -35,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import com.sss.gudzillaapps.common.theme.BodyPopMedium
 import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.common.theme.Gray
+import com.sss.gudzillaapps.common.theme.Primary
 
 @Composable
 fun CustomTextField(
@@ -44,9 +48,10 @@ fun CustomTextField(
     modifier: Modifier = Modifier,
     forceUppercase: Boolean = false,
     readOnly: Boolean = false,
+    textStyle: TextStyle = BodyPopMedium,
     textColor: Color = Color.Black,
     backgroundColor: Color = Color.White,
-    trailingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null, // icon disebelah kanan
     leadingIcon: (@Composable () -> Unit)? = null,
     isMultiline: Boolean = false,
     showClearIcon: Boolean = true,
@@ -58,6 +63,12 @@ fun CustomTextField(
     paddingStart: Dp = Dimens.MediumMargin,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val isFocused by interactionSource.collectIsFocusedAsState()
+    val borderStrokeColor = if (isFocused || value.isNotEmpty()) {
+        Primary
+    } else {
+        Gray.copy(alpha = 0.5f)
+    }
 
     if (readOnly && onClick != null) {
         LaunchedEffect(interactionSource) {
@@ -74,9 +85,7 @@ fun CustomTextField(
         color = backgroundColor,
         tonalElevation = 2.dp,
         shadowElevation = 4.dp,
-        border = BorderStroke(
-            width = 1.dp, color = Color.Black.copy(alpha = 0.12f)
-        ),
+        border = BorderStroke(1.dp, borderStrokeColor),
         modifier = modifier.fillMaxWidth()
     ) {
         BasicTextField(
@@ -86,7 +95,7 @@ fun CustomTextField(
                 onValueChange(newValue)
             },
             readOnly = readOnly,
-            textStyle = BodyPopMedium.copy(color = textColor),
+            textStyle = textStyle.copy(color = textColor),
             visualTransformation = visualTransformation,
             keyboardOptions = keyboardOptions.copy(
                 imeAction = if (isMultiline) ImeAction.Default else ImeAction.Next
