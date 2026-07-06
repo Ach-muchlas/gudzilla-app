@@ -10,4 +10,6 @@ object Routes {
 
     const val CREATE_INBOUND = "create_inbound"
     const val LIST_PURCHASE_ORDER = "purchase_orders"
+
+    const val STORE_MANAGEMENT = "store_management"
 }

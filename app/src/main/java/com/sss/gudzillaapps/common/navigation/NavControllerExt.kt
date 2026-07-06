@@ -43,5 +43,11 @@ fun NavController.navigateToDestination(destination: RouteDestination) {
                 launchSingleTop = true
             }
         }
+
+        RouteDestination.HomeToStoreManagement -> {
+            navigate(Routes.STORE_MANAGEMENT){
+                launchSingleTop = true
+            }
+        }
     }
 }

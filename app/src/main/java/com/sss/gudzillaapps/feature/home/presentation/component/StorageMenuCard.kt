@@ -6,6 +6,7 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -30,10 +31,12 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sss.gudzillaapps.common.component.ResponsiveTitleText
+import com.sss.gudzillaapps.common.theme.BodyBitterBold
+import com.sss.gudzillaapps.common.theme.BodyPopBold
+import com.sss.gudzillaapps.common.theme.Dimens
+import com.sss.gudzillaapps.common.theme.Gray
 import kotlinx.coroutines.launch
 
 @Composable
@@ -115,11 +118,17 @@ fun StorageMenuCard(
                     )
             )
 
+
             // Penyusunan Konten Dalam Card
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(12.dp)
+                    .padding(
+                        start = Dimens.SmallMargin,
+                        end = Dimens.SmallMargin,
+                    ),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
 
                 // Pembungkus Chart Melingkar
@@ -155,17 +164,15 @@ fun StorageMenuCard(
                     // Menampilkan Teks Persentase di bagian tengah dalam Canvas ring
                     Text(
                         text = "$percentage%",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF1E293B)
+                        style = BodyBitterBold.copy(fontSize = 23.sp)
                     )
                 }
 
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(Dimens.SmallMargin))
 
-                // Menampilkan Judul (Menggunakan komponen ResponsiveTitleText bawaan Anda)
-                ResponsiveTitleText(
+                Text(
                     text = title,
+                    style = BodyPopBold.copy(color = Gray, fontSize = 18.sp)
                 )
             }
         }

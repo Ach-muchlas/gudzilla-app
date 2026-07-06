@@ -14,6 +14,7 @@ import com.sss.gudzillaapps.common.navigation.Routes.INBOUND
 import com.sss.gudzillaapps.common.navigation.Routes.LIST_PURCHASE_ORDER
 import com.sss.gudzillaapps.common.navigation.Routes.LOGIN
 import com.sss.gudzillaapps.common.navigation.Routes.PALLET
+import com.sss.gudzillaapps.common.navigation.Routes.STORE_MANAGEMENT
 import com.sss.gudzillaapps.feature.connection.presentation.ConnectionScreen
 import com.sss.gudzillaapps.feature.home.presentation.HomeScreen
 import com.sss.gudzillaapps.feature.inbound.presentation.create_inbound.CreateInboundScreen
@@ -21,6 +22,7 @@ import com.sss.gudzillaapps.feature.inbound.presentation.list_inbound.ListInboun
 import com.sss.gudzillaapps.feature.login.presentation.LoginScreen
 import com.sss.gudzillaapps.feature.pallet.presentation.PalletScreen
 import com.sss.gudzillaapps.feature.purchase_order.presentation.list_purchase_order.ListPurchaseOrderScreen
+import com.sss.gudzillaapps.feature.store_management.presentation.StoreManagementScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
@@ -51,9 +53,14 @@ fun AppNavGraph(
         }
 
         composable(HOME) {
-            HomeScreen(onNavigate = { destination ->
+            HomeScreen(
+                onNavigate = { destination ->
                 navController.navigateToDestination(destination)
-            })
+            },
+                onClickManagementStore = {
+                    navController.navigateToDestination(RouteDestination.HomeToStoreManagement)
+                }
+            )
         }
 
         composable(PALLET) {
@@ -75,6 +82,10 @@ fun AppNavGraph(
 
         composable(LIST_PURCHASE_ORDER) {
             ListPurchaseOrderScreen()
+        }
+
+        composable(STORE_MANAGEMENT){
+            StoreManagementScreen()
         }
     }
 }

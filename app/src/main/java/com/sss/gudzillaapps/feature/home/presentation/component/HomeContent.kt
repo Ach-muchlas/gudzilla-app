@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.LocationOn
+import androidx.compose.material.icons.rounded.Inventory
 import androidx.compose.material.icons.rounded.LocationOn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -131,7 +132,7 @@ fun HomeMenu(menus: List<MenuData>, onMenuClicked: (MenuData) -> Unit) {
 
 
 @Composable
-fun HomeContent(viewModel: HomeViewModel) {
+fun HomeContent(viewModel: HomeViewModel, onClickStoreManagement : () -> Unit) {
 
     val menuItems by viewModel.menuItems.collectAsStateWithLifecycle()
 
@@ -154,21 +155,41 @@ fun HomeContent(viewModel: HomeViewModel) {
 
             Spacer(Modifier.height(Dimens.ExtraLargeMargin))
             HomeHeader()
-            Spacer(Modifier.height(Dimens.SmallMargin))
+            Spacer(Modifier.height(Dimens.LargeMargin))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = Dimens.LargeMargin),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    .padding(start = Dimens.LargeMargin),
+                horizontalArrangement = Arrangement.spacedBy(Dimens.MediumMargin)
             ) {
 
                 StorageMenuCard(
-                    percentage = 82,
-                    modifier = Modifier.weight(1f),
-                    onClick = { /* Handle klik storage */ }
+                    percentage = 80,
+                    modifier = Modifier.weight(0.8f),
+                    onClick = onClickStoreManagement
                 )
 
-                Spacer(modifier = Modifier.weight(1f))
+                Column(
+                    modifier = Modifier.weight(1f).padding(end = Dimens.MediumMargin),
+                    verticalArrangement = Arrangement.spacedBy(Dimens.MediumMargin)
+                ) {
+                    InfoStatCard(
+                        label = "Active Pallets",
+                        value = "1,284",
+                        trend = "↑ 4%",
+                        icon = Icons.Rounded.Inventory,
+                        iconColor = Color(0xFF9C5A32),
+                        iconBackgroundColor = Color(0xFFFFE6D5)
+                    )
+                    InfoStatCard(
+                        label = "Active Pallets",
+                        value = "1,284",
+                        trend = "↑ 4%",
+                        icon = Icons.Rounded.Inventory,
+                        iconColor = Color(0xFF9C5A32),
+                        iconBackgroundColor = Color(0xFFFFE6D5)
+                    )
+                }
             }
             Spacer(Modifier.height(Dimens.SmallMargin))
             HomeMenu(menus = menuItems, onMenuClicked = viewModel::onMenuClicked)
