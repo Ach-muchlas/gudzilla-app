@@ -58,14 +58,14 @@ fun CustomFilterChip(
                 scaleX = scale
                 scaleY = scale
                 shadowElevation = elevation.toPx()
-                shape = RoundedCornerShape(18.dp)
+                shape = RoundedCornerShape(24.dp)
                 clip = true
             }
             .background(backgroundColor)
             .border(
                 width = 1.dp,
                 color = if (selected) Color.Transparent else BorderColor,
-                shape = RoundedCornerShape(18.dp)
+                shape = RoundedCornerShape(24.dp)
             )
             .clickable(
                 indication = null,
