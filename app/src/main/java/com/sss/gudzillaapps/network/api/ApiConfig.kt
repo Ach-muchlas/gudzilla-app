@@ -1,0 +1,51 @@
+package com.sss.gudzillaapps.network.api
+
+import com.google.gson.GsonBuilder
+import com.sss.gudzillaapps.network.constanta.UrlConstant
+import com.sss.gudzillaapps.network.interceptor.AuthInterceptor
+import com.sss.gudzillaapps.network.interceptor.BaseUrlInterceptor
+import com.sss.gudzillaapps.network.interceptor.ConnectionInterceptor
+import com.sss.gudzillaapps.network.interceptor.TimeoutInterceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object ApiConfig {
+    private var retrofit: Retrofit? = null
+
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(TimeoutInterceptor())
+            .addInterceptor(ConnectionInterceptor())
+            .addInterceptor(AuthInterceptor())
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(BaseUrlInterceptor())
+            .build()
+    }
+
+    fun getApiService(): ApiService {
+        if (retrofit == null) {
+            retrofit = createRetrofitInstance()
+        }
+
+        return retrofit!!.create(ApiService::class.java)
+    }
+
+    fun reloadApiService() {
+        retrofit = null
+    }
+
+    private fun createRetrofitInstance(): Retrofit {
+        val client = provideOkHttpClient()
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+
+        return Retrofit.Builder()
+            .baseUrl(UrlConstant.urlDomain())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(client)
+            .build()
+    }
+}
