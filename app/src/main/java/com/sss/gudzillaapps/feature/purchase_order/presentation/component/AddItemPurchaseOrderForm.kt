@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.feature.add_item_purchase_order.presentation.component
+package com.sss.gudzillaapps.feature.purchase_order.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,13 +9,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ShouldPauseCallback
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusManager
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import com.sss.gudzillaapps.common.component.CustomDropdownTextField
-import com.sss.gudzillaapps.common.component.CustomTextField
+import com.sss.gudzillaapps.common.component.button.CustomPrimaryButton
+import com.sss.gudzillaapps.common.component.textfield.CustomDropdownTextField
+import com.sss.gudzillaapps.common.component.textfield.CustomTextField
 import com.sss.gudzillaapps.common.theme.BodyPopBold
 import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.common.theme.Dimens.TitleAppBar
@@ -29,7 +31,7 @@ fun AddItemPurchaseOrderForm(
     val listItem = listOf("Luwak", "Mie burung dara", "zenlatte")
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(Dimens.MediumMargin)
     ) {
         Text(
@@ -60,6 +62,8 @@ fun AddItemPurchaseOrderForm(
             itemText = { it }
         )
 
+
+        Spacer(Modifier.height(Dimens.MediumMargin))
         Text(
             text = "Qty",
             style = BodyPopBold,
@@ -79,6 +83,34 @@ fun AddItemPurchaseOrderForm(
                 keyboardType = KeyboardType.Number,
             ),
         )
+
+        Spacer(Modifier.height(Dimens.MediumMargin))
+
+        Text(
+            text = "Expired Date",
+            style = BodyPopBold,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = Dimens.ExtraExtraSmallCornerRadius)
+        )
+
+        Spacer(Modifier.height(Dimens.ExtraExtraSmallMargin))
+
+        CustomTextField(
+            value = "",
+            onValueChange = {},
+            hint = "Masukkan exp date item",
+            onNext = { focusManager.moveFocus(FocusDirection.Down) },
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number,
+            ),
+        )
+
+        Spacer(Modifier.height(Dimens.ExtraLargeMargin))
+
+        CustomPrimaryButton("Simpan") { }
+
+        Spacer(Modifier.height(Dimens.SmallMargin))
     }
 
 }

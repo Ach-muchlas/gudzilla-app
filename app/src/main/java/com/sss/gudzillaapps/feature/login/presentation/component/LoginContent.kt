@@ -35,9 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sss.gudzillaapps.R
 import com.sss.gudzillaapps.common.component.AlertType
-import com.sss.gudzillaapps.common.component.CustomOutlineButton
-import com.sss.gudzillaapps.common.component.CustomPrimaryButton
-import com.sss.gudzillaapps.common.component.CustomTextField
+import com.sss.gudzillaapps.common.component.button.CustomOutlineButton
+import com.sss.gudzillaapps.common.component.button.CustomPrimaryButton
+import com.sss.gudzillaapps.common.component.textfield.CustomTextField
 import com.sss.gudzillaapps.common.component.ShowAlert
 import com.sss.gudzillaapps.common.component.TextDivider
 import com.sss.gudzillaapps.common.component.coloredShadow

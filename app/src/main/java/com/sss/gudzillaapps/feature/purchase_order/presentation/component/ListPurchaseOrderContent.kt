@@ -20,7 +20,7 @@ import com.sss.gudzillaapps.feature.purchase_order.data.entity.PurchaseOrderEnti
 
 @Composable
 fun ListPurchaseOrderContent(
-    onBackButtonClicked: () -> Unit,
+    onAddItem: () -> Unit,
 ) {
 
     val dataPurchaseOrder = listOf(
@@ -47,10 +47,12 @@ fun ListPurchaseOrderContent(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            CustomTopBar(title = "List PO", onBackClick = onBackButtonClicked)
+            CustomTopBar(title = "List PO", onBackClick = {  })
 
             LazyColumn(
-                modifier = Modifier.fillMaxWidth().weight(1f),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
                 verticalArrangement = Arrangement.spacedBy(Dimens.MediumMargin),
                 contentPadding = PaddingValues(
                     top = Dimens.MediumMargin,
@@ -58,7 +60,7 @@ fun ListPurchaseOrderContent(
                 )
             ) {
                 items(dataPurchaseOrder) { item ->
-                    CardPurchaseOrder(data = item, onClick = {})
+                    CardPurchaseOrder(data = item, onClick = onAddItem)
                 }
             }
         }

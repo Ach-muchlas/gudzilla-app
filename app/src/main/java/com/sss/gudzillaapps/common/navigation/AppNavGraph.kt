@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.sss.gudzillaapps.common.navigation.Routes.ADD_ITEM_PURCHASE
 import com.sss.gudzillaapps.common.navigation.Routes.CONNECTION
 import com.sss.gudzillaapps.common.navigation.Routes.CREATE_INBOUND
 import com.sss.gudzillaapps.common.navigation.Routes.HOME
@@ -15,6 +16,7 @@ import com.sss.gudzillaapps.common.navigation.Routes.LIST_PURCHASE_ORDER
 import com.sss.gudzillaapps.common.navigation.Routes.LOGIN
 import com.sss.gudzillaapps.common.navigation.Routes.PALLET
 import com.sss.gudzillaapps.common.navigation.Routes.STORE_MANAGEMENT
+import com.sss.gudzillaapps.feature.purchase_order.presentation.add_item_purchase_order.AddItemPurchaseOrderScreen
 import com.sss.gudzillaapps.feature.connection.presentation.ConnectionScreen
 import com.sss.gudzillaapps.feature.home.presentation.HomeScreen
 import com.sss.gudzillaapps.feature.inbound.presentation.create_inbound.CreateInboundScreen
@@ -55,8 +57,8 @@ fun AppNavGraph(
         composable(HOME) {
             HomeScreen(
                 onNavigate = { destination ->
-                navController.navigateToDestination(destination)
-            },
+                    navController.navigateToDestination(destination)
+                },
                 onClickManagementStore = {
                     navController.navigateToDestination(RouteDestination.HomeToStoreManagement)
                 }
@@ -81,11 +83,17 @@ fun AppNavGraph(
         }
 
         composable(LIST_PURCHASE_ORDER) {
-            ListPurchaseOrderScreen()
+            ListPurchaseOrderScreen(onAddItemPurchaseOrder = {
+                navController.navigateToDestination(RouteDestination.ListPurchaseOrderToAddItemPurchaseOrder)
+            })
         }
 
-        composable(STORE_MANAGEMENT){
+        composable(STORE_MANAGEMENT) {
             StoreManagementScreen()
+        }
+
+        composable(ADD_ITEM_PURCHASE) {
+            AddItemPurchaseOrderScreen()
         }
     }
 }

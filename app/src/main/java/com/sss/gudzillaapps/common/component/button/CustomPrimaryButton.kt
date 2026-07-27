@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.common.component
+package com.sss.gudzillaapps.common.component.button
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState

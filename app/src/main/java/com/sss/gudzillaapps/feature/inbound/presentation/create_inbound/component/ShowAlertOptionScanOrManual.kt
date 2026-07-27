@@ -33,8 +33,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.sss.gudzillaapps.common.component.CustomOutlineButton
-import com.sss.gudzillaapps.common.component.CustomPrimaryButton
+import com.sss.gudzillaapps.common.component.button.CustomOutlineButton
+import com.sss.gudzillaapps.common.component.button.CustomPrimaryButton
 import com.sss.gudzillaapps.common.theme.BodyPopBold
 import com.sss.gudzillaapps.common.theme.BodyPopMedium
 import com.sss.gudzillaapps.common.theme.Dimens

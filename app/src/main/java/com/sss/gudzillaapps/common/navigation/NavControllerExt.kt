@@ -49,5 +49,11 @@ fun NavController.navigateToDestination(destination: RouteDestination) {
                 launchSingleTop = true
             }
         }
+
+        RouteDestination.ListPurchaseOrderToAddItemPurchaseOrder -> {
+            navigate(Routes.ADD_ITEM_PURCHASE){
+                launchSingleTop = true
+            }
+        }
     }
 }

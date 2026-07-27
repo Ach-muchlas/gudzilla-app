@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.common.component
+package com.sss.gudzillaapps.common.component.card
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

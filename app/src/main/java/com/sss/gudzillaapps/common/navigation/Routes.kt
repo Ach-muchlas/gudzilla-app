@@ -12,4 +12,6 @@ object Routes {
     const val LIST_PURCHASE_ORDER = "purchase_orders"
 
     const val STORE_MANAGEMENT = "store_management"
+
+    const val ADD_ITEM_PURCHASE = "add_item_purchase"
 }

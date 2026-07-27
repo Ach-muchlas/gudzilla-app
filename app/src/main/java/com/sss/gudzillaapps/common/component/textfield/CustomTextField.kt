@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.common.component
+package com.sss.gudzillaapps.common.component.textfield
 
 
 import androidx.compose.foundation.BorderStroke

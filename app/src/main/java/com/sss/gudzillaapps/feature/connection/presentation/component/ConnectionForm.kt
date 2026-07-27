@@ -24,9 +24,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import com.sss.gudzillaapps.R
 import com.sss.gudzillaapps.common.component.CustomCheckbox
-import com.sss.gudzillaapps.common.component.CustomDropdownTextField
-import com.sss.gudzillaapps.common.component.CustomReadOnlyField
-import com.sss.gudzillaapps.common.component.CustomTextField
+import com.sss.gudzillaapps.common.component.textfield.CustomDropdownTextField
+import com.sss.gudzillaapps.common.component.textfield.CustomReadOnlyField
+import com.sss.gudzillaapps.common.component.textfield.CustomTextField
 import com.sss.gudzillaapps.common.theme.BodyPopBold
 import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.feature.login.presentation.component.DeviceIdField

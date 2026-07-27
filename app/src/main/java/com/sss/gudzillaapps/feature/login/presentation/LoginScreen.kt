@@ -30,7 +30,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sss.gudzillaapps.R
 import com.sss.gudzillaapps.common.component.BackgroundGradient
-import com.sss.gudzillaapps.common.component.CustomFloating3DCard
+import com.sss.gudzillaapps.common.component.card.CustomFloating3DCard
 import com.sss.gudzillaapps.common.device.presentation.DeviceViewModel
 import com.sss.gudzillaapps.common.helper.RequestAppPermissions
 import com.sss.gudzillaapps.common.manager.SnackbarManager

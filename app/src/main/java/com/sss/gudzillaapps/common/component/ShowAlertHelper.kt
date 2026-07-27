@@ -26,6 +26,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.sss.gudzillaapps.R
+import com.sss.gudzillaapps.common.component.button.CustomPrimaryButton
 import com.sss.gudzillaapps.common.theme.BodyBitterMedium
 import com.sss.gudzillaapps.common.theme.BodyPopBold
 import com.sss.gudzillaapps.common.theme.Dimens

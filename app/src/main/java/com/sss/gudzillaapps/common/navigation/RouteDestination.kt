@@ -6,6 +6,8 @@ sealed class RouteDestination {
 
     // Home Navigation
     data object HomeToMenuPallet : RouteDestination()
+    data object HomeToStoreManagement : RouteDestination()
+
 
     // Menu pallet navigation
     data object PalletToInbound : RouteDestination()
@@ -13,5 +15,5 @@ sealed class RouteDestination {
     data object ListInboundPalletToCreateInbound : RouteDestination()
     data object CreateHeaderInboundToListPurchaseOrder : RouteDestination()
 
-    data object HomeToStoreManagement : RouteDestination()
+    data object ListPurchaseOrderToAddItemPurchaseOrder : RouteDestination()
 }

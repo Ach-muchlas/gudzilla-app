@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sss.gudzillaapps.common.component.CustomCardGradient
+import com.sss.gudzillaapps.common.component.card.CustomCardGradient
 import com.sss.gudzillaapps.common.theme.BodyPopBold
 import com.sss.gudzillaapps.common.theme.BodyPopRegular
 import com.sss.gudzillaapps.common.theme.Dimens

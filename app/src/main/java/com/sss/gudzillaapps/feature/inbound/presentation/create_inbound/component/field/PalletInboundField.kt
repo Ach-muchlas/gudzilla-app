@@ -17,13 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusManager
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
-import com.sss.gudzillaapps.R
 import com.sss.gudzillaapps.common.component.CustomFloatingActionButton
-import com.sss.gudzillaapps.common.component.CustomTextField
-import com.sss.gudzillaapps.common.theme.BodyPopBold
+import com.sss.gudzillaapps.common.component.textfield.CustomTextField
+import com.sss.gudzillaapps.common.theme.BodyPopMedium
 import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.common.theme.Gray
 
@@ -41,7 +39,7 @@ fun PalletInboundField(
 
     Text(
         text = textTitle,
-        style = BodyPopBold,
+        style = BodyPopMedium,
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = Dimens.ExtraExtraSmallCornerRadius)

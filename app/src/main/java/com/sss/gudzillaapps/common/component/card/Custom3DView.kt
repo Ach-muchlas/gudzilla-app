@@ -1,4 +1,4 @@
-package com.sss.gudzillaapps.common.component
+package com.sss.gudzillaapps.common.component.card
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -18,9 +18,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.graphics.graphicsLayer
 
 
 @Composable
@@ -33,7 +30,6 @@ fun CustomFloating3DCard(
         modifier = modifier
             .padding(bottom = 24.dp)
     ) {
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()

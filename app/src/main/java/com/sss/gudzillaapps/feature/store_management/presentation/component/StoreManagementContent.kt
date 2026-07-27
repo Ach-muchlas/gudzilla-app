@@ -15,7 +15,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sss.gudzillaapps.common.component.CustomFilterChip
+import com.sss.gudzillaapps.common.component.textfield.CustomFilterChip
 import com.sss.gudzillaapps.common.component.CustomTopBar
 import com.sss.gudzillaapps.common.theme.BackgroundLayout
 import com.sss.gudzillaapps.common.theme.Dimens

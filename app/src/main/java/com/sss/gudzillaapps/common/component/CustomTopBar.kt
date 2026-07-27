@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.sss.gudzillaapps.common.component.card.CustomRoundedIconContainer
 import com.sss.gudzillaapps.common.theme.Dimens
 import com.sss.gudzillaapps.common.theme.TitlePopSemiBold
 
