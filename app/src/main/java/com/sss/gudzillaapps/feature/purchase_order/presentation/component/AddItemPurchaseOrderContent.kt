@@ -45,7 +45,7 @@ fun AddItemPurchaseOrderContent() {
                 AddItemPurchaseOrderForm(focusManager = focusManager)
             }
 
-            Text("M")
+            Text("Item yang terpilih")
         }
     }
 }
